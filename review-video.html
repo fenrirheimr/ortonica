@@ -1,0 +1,264 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+<!--  <link rel="apple-touch-icon" href="icon.png">-->
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+  <div class="main-container inner">
+    <header class="header">
+      <div class="logo-wrapper">
+        <a href="/"><img src="img/logo.png" srcset="img/logo_retina.png 2x" alt="" /></a>
+      </div>
+      <div class="link-wrapper">
+        <ul>
+          <li><a class="current" href="review-video.html">Подарок за видеоотзыв</a></li>
+          <li><a href="review-text.html">Подарок за текстовый отзыв</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="content-wrapper review">
+      <div class="promo-wrapper video">
+        <div class="buttons-block">
+          <h1>Табурет для ванны LUX 565</h1>
+          <p>Расскажите, что Вам нравится в продукции Ortonica и получите гарантированный подарок</p>
+          <div class="buttons-wrapper">
+            <a href="#feedback" class="button toForm">Заполни форму</a>
+          </div>
+        </div>
+        <div class="video-btn-wrapper">
+          <div class="video-btn"></div>
+          <div class="text">Посмотреть Подарок</div>
+        </div>
+        <img src="img/gift2.png" srcset="img/gift2x2.png 2x" alt="" class="right-gift" />
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-head">
+            <div class="num">1</div>
+            <h3>Напишите отзыв</h3>
+          </div>
+          <p>Расскажите, что Вам понравилось в продукции Ortonica и опубликуйте отзыв согласно правилам</p>
+        </div>
+        <div class="step">
+          <div class="step-head">
+            <div class="num">2</div>
+            <h3>Заполните форму</h3>
+          </div>
+          <p>Заполните форму и приложите ссылку на страницу с отзывом</p>
+        </div>
+        <div class="step">
+          <div class="step-head">
+            <div class="num">3</div>
+            <h3>Получите подарок</h3>
+          </div>
+          <p>Получите ссылку на электронную библиотеку на указанную почту</p>
+        </div>
+      </div>
+
+      <div class="categories">
+        <div class="left"></div>
+        <div class="right">
+          <div class="title">
+            В акции участвуют следующие категории товаров:
+          </div>
+          <div class="list">
+            <ul>
+              <li>механические коляски</li>
+              <li>электрические коляски</li>
+              <li>коляски для детей с ДЦП</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="rules">
+        <div class="left-column">
+          <h2>Правила акции</h2>
+        </div>
+        <div class="right-column">
+          <ol>
+            <li>Акция проводится на территории Российской Федерации.</li>
+            <li>Отзывы могут быть опубликованы на любых Интернет-площадках.</li>
+            <li>Отзыв должен пройти модерацию и быть опубликован.</li>
+            <li>На один приобретенный товар можно оставить только один отзыв.</li>
+            <li>Организатор может потребовать фотографию чека, акционного флаера и серийного номера товара.</li>
+            <li>Не принимаются отзывы:<br />
+              &mdash; содержащие ненормативную лексику или оскорбления; <br />
+              &mdash; рекламного характера (содержащие информацию и ссылки на другие бренды)</li>
+            <li>Дата публикации отзыва должна быть не ранее 01 октября 2023 г.</li>
+            <li>Организатор вправе в одностороннем порядке изменить подарок за отзыв.</li>
+            <li>В случае попытки мошенничества или обмана со стороны участника акции, организатор вправе отказать в выдаче подарка.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="form-tiles-wrapper" >
+        <div class="left-column" id="feedback">
+          <div class="form-wrapper">
+            <div class="form-title">Заполните форму для участия в Акции</div>
+            <p>Удостоверьтесь, что Вы прочли все условия действующей Акции на странице выше, перед тем как перейти к заполнению формы</p>
+
+            <div class="form-container" >
+              <!-- Форма обратной связи -->
+              <form id="feedback-form" action="form-processing.php" enctype="multipart/form-data" novalidate>
+                <div class="form-row">
+                  <!-- Имя пользователя -->
+                  <input id="name" type="text" name="name" class="form-control" value="" placeholder="Имя" minlength="2" maxlength="30" required="required">
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-row">
+                  <!-- Email пользователя -->
+                  <input id="email" type="email" name="email" required="required" class="form-control" value="" placeholder="Email" />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-row phone">
+                  <!-- Телефон пользователя -->
+                  <input id="phone" type="tel" name="phone" required="required" class="form-control" value="" placeholder="+7 (999) 999-99-99">
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="form-row m-hidden">
+                  <!-- Город и индекс пользователя -->
+                  <div class="city">
+                    <input id="city" type="text" name="city" required="required" class="form-control" value="" placeholder="Город">
+                    <div class="invalid-feedback"></div>
+                  </div>
+                  <div class="index">
+                    <input id="index" type="text" name="index" required="required" class="form-control" value="" placeholder="Индекс">
+                    <div class="invalid-feedback"></div>
+                  </div>
+                </div>
+                <div class="form-row m-hidden">
+                  <!-- Адрес пользователя -->
+                  <input id="addr" type="text" name="addr" required="required" class="form-control" value="" placeholder="Полный адрес">
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="form-row">
+                  <!-- Ссылка пользователя -->
+                  <input id="link" type="text" name="addr" required="required" class="form-control" value="" placeholder="Ссылка на отзыв">
+                  <div class="invalid-feedback"></div>
+                </div>
+                <!-- Файлы, для прикрепления к форме -->
+                <div class="form-attach">
+                  <p>Скриншот вашего отзыва</p>
+                  <div class="form-attach-wrapper">
+                    <label class="form-attach-label">
+                      <input type="file" name="attach[]" required>
+                      Загрузить файл
+                    </label>
+                    <div class="form-attach__items"></div>
+                  </div>
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <!-- Пользовательское солашение -->
+                <div class="form-check">
+                  <label class="form-check-label" for="agree">
+                    <input class="form-check-input" type="checkbox" name="agree" id="agree" required value="true">
+                    <span>Согласен с политикой обработки персональных данных</span>
+                  </label>
+                  <div class="invalid-feedback"></div>
+                </div>
+
+                <!-- Сообщение об ошибке -->
+<!--                <div class="form-error form-error_hide">Исправьте данные и отправьте форму ещё раз.</div>-->
+
+                <!-- Кнопка для отправки формы на сервер -->
+                <div class="form-submit">
+                  <button type="submit" class="button">Участвую</button>
+                </div>
+
+              </form>
+
+              <!-- Сообщение об успешной отправки формы -->
+<!--              <div class="form-success form-success_hide">-->
+<!--                <div class="form-success__message">Форма успешно отправлена. Нажмите <button type="button" class="form-success__btn">здесь</button>, если нужно отправить ещё одну форму.</div>-->
+<!--              </div>-->
+
+            </div>
+          </div>
+        </div>
+        <div class="right-column">
+          <div class="form-warning">
+            Дата публикации отзыва должна быть не ранее 01 октября 2023 г.
+          </div>
+          <div class="form-info">
+            <p>Если товар был приобретен на маркетплейсе Ozon, то отзыв необходимо оставить там же.</p>
+            <p>Если товар был приобретен на маркетплейсе Яндекс.Маркет, в ином месте или получен от государства, то отзыв необходимо оставить на Яндекс.Маркете.</p>
+          </div>
+        </div>
+
+        <div class="form-background-tile"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="footer inner">
+    <div class="footer-wrapper">
+      <div class="logo-wrapper">
+        <img src="img/logo_footer_w.png" srcset="img/logo_footer_w_retina.png 2x" alt="" />
+      </div>
+      <div class="footer-info-wrapper">
+        <div class="left-column">
+          ООО “Реамед” <br />
+          ОГРН: 1113668031531 <br />
+          ИНН: 3662167254
+        </div>
+        <div class="center-column">
+          <ul>
+            <li><a href="#">Фирменный интернет-магазин</a></li>
+            <li><a href="#">Политика обработки персональных данных</a></li>
+          </ul>
+        </div>
+        <div class="right-column">
+          <img src="img/pin.svg" alt="" />
+          В акции участвуют все регионы РФ
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <img src="img/gift1.png" srcset="img/gift1x2.png 2x" alt="" class="left-gift" />
+
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js" type="module"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
