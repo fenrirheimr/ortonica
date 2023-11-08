@@ -6,10 +6,14 @@ if (hasCarousel) {
   carousel()
 }
 
-// const hasFeedbackForm = document.querySelector('#feedback-form');
-// if (hasFeedbackForm) {
-//   feedbackForm()
-// }
+let width = window.innerWidth;
+window.addEventListener('resize', function () {
+  if (window.innerWidth !== width) {
+    if (hasCarousel) {
+      carousel()
+    }
+  }
+});
 
 function smoothScroll(event) {
   event.preventDefault();
@@ -23,6 +27,20 @@ let link = document.querySelector('.toForm');
 if (link) {
   link.addEventListener("click", smoothScroll);
 }
+
+feedbackForm.getOrCreateInstance('form');
+
+document.addEventListener('itc.successSendForm', (e) => {
+  const el = e.target.closest('.form-container').querySelector('.form-success');
+  el.classList.remove('form-success_hide');
+});
+
+document.querySelector('.form-success__btn').addEventListener('click', (e) => {
+  const el = e.target.closest('.form-container').querySelector('form');
+  const form = feedbackForm.getOrCreateInstance(el);
+  form.reset();
+  e.target.closest('.form-container').querySelector('.form-success').classList.add('form-success_hide');
+});
 
 export default {
   feedbackForm

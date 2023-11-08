@@ -120,88 +120,92 @@
 
       <div class="form-tiles-wrapper" >
         <div class="left-column" id="feedback">
-          <div class="form-wrapper">
+          <div class="form-container form__wrapper">
             <div class="form-title">Заполните форму для участия в Акции</div>
             <p>Удостоверьтесь, что Вы прочли все условия действующей Акции на странице выше, перед тем как перейти к заполнению формы</p>
-
-            <div class="form-container" >
-              <!-- Форма обратной связи -->
-              <form id="feedback-form" action="form-processing.php" enctype="multipart/form-data" novalidate>
-                <div class="form-row">
-                  <!-- Имя пользователя -->
+            <!-- Форма обратной связи -->
+            <form id="feedback-form" action="form-processing.php" enctype="multipart/form-data" novalidate>
+              <div class="form-row">
+                <!-- Имя пользователя -->
+                <div class="form-group">
                   <input id="name" type="text" name="name" class="form-control" value="" placeholder="Имя" minlength="2" maxlength="30" required="required">
-                  <div class="invalid-feedback"></div>
                 </div>
-                <div class="form-row">
-                  <!-- Email пользователя -->
-                  <input id="email" type="email" name="email" required="required" class="form-control" value="" placeholder="Email" />
-                  <div class="invalid-feedback"></div>
+              </div>
+              <div class="form-row">
+                <!-- Email пользователя -->
+                <div class="form-group">
+                  <input id="email" type="email" name="email" required="required" class="form-control" value="" placeholder="Email-адрес">
                 </div>
-                <div class="form-row phone">
-                  <!-- Телефон пользователя -->
+              </div>
+              <div class="form-row phone">
+                <!-- Телефон пользователя -->
+                <div class="form-group">
                   <input id="phone" type="tel" name="phone" required="required" class="form-control" value="" placeholder="+7 (999) 999-99-99">
-                  <div class="invalid-feedback"></div>
                 </div>
-                <div class="form-row m-hidden">
-                  <!-- Город и индекс пользователя -->
+              </div>
+
+              <div class="form-row">
+                <!-- Город и индекс пользователя -->
+                <div class="form-group">
                   <div class="city">
                     <input id="city" type="text" name="city" required="required" class="form-control" value="" placeholder="Город">
-                    <div class="invalid-feedback"></div>
                   </div>
                   <div class="index">
                     <input id="index" type="text" name="index" required="required" class="form-control" value="" placeholder="Индекс">
-                    <div class="invalid-feedback"></div>
                   </div>
                 </div>
-                <div class="form-row m-hidden">
-                  <!-- Адрес пользователя -->
+              </div>
+              <div class="form-row">
+                <!-- Адрес пользователя -->
+                <div class="form-group">
                   <input id="addr" type="text" name="addr" required="required" class="form-control" value="" placeholder="Полный адрес">
-                  <div class="invalid-feedback"></div>
                 </div>
+              </div>
+              <div class="form-row">
+                <!-- Ссылка пользователя -->
+                <div class="form-group">
+                  <input id="link" type="text" name="review" required="required" class="form-control" value="" placeholder="Ссылка на отзыв">
+                </div>
+              </div>
 
-                <div class="form-row">
-                  <!-- Ссылка пользователя -->
-                  <input id="link" type="text" name="addr" required="required" class="form-control" value="" placeholder="Ссылка на отзыв">
-                  <div class="invalid-feedback"></div>
+              <!-- Файлы, для прикрепления к форме -->
+              <div class="form-group form-attach">
+                <p>Скриншот вашего отзыва</p>
+                <div class="form-attach__wrapper form-attach-wrapper">
+                  <label class="form-attach-label form-attach__label">
+                    <input type="file" name="attach[]" required>
+                    Загрузить файл
+                  </label>
+                  <div class="form-attach__items"></div>
                 </div>
-                <!-- Файлы, для прикрепления к форме -->
-                <div class="form-attach">
-                  <p>Скриншот вашего отзыва</p>
-                  <div class="form-attach-wrapper">
-                    <label class="form-attach-label">
-                      <input type="file" name="attach[]" required>
-                      Загрузить файл
-                    </label>
-                    <div class="form-attach__items"></div>
-                  </div>
-                  <div class="invalid-feedback"></div>
-                </div>
+              </div>
 
-                <!-- Пользовательское солашение -->
-                <div class="form-check">
+              <!-- Пользовательское солашение -->
+              <div class="form-row">
+                <div class="form-group form-agree form-check">
                   <label class="form-check-label" for="agree">
                     <input class="form-check-input" type="checkbox" name="agree" id="agree" required value="true">
                     <span>Согласен с политикой обработки персональных данных</span>
                   </label>
-                  <div class="invalid-feedback"></div>
                 </div>
+              </div>
 
-                <!-- Сообщение об ошибке -->
-<!--                <div class="form-error form-error_hide">Исправьте данные и отправьте форму ещё раз.</div>-->
+              <!-- Сообщение об ошибке -->
+              <div class="form-error form-error_hide">Исправьте данные и отправьте форму ещё раз.</div>
 
-                <!-- Кнопка для отправки формы на сервер -->
-                <div class="form-submit">
-                  <button type="submit" class="button">Участвую</button>
-                </div>
+              <!-- Кнопка для отправки формы на сервер -->
+              <div class="form-submit">
+                <button type="submit" class="button">Участвую</button>
+              </div>
 
-              </form>
+            </form>
 
-              <!-- Сообщение об успешной отправки формы -->
-<!--              <div class="form-success form-success_hide">-->
-<!--                <div class="form-success__message">Форма успешно отправлена. Нажмите <button type="button" class="form-success__btn">здесь</button>, если нужно отправить ещё одну форму.</div>-->
-<!--              </div>-->
-
+            <!-- Сообщение об успешной отправки формы -->
+            <div class="form-success form-success_hide">
+              <div class="form-success__message">Форма успешно отправлена. Нажмите
+                <button type="button" class="form-success__btn">здесь</button>, если нужно отправить ещё одну форму.</div>
             </div>
+
           </div>
         </div>
         <div class="right-column">

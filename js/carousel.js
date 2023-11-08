@@ -23,7 +23,6 @@ export function carousel() {
     lastSlide.style.left = (-lengthOfSlide) + "px";
     carouselContent.insertBefore(lastSlide, carouselContent.firstChild);
   }
-// addClone();
 
   function removeClone() {
     var firstSlide = carouselContent.firstElementChild;

@@ -1,5 +1,5 @@
 
-class feedbackForm {
+export class feedbackForm {
 
   static instances = [];
 
@@ -17,8 +17,8 @@ class feedbackForm {
   constructor(target, config = {}) {
     this._attach = {
       index: 0,
-      maxItems: config['attachMaxItems'] || 5,
-      maxFileSize: config['attachMaxFileSize'] || 512, // максимальный размер файла
+      maxItems: config['attachMaxItems'] || 1,
+      maxFileSize: config['attachMaxFileSize'] || 25000, // максимальный размер файла
       ext: config['attachExt'] || ['jpg', 'jpeg', 'bmp', 'gif', 'png'], // дефолтные допустимые расширения для файлов
       items: []
     };
@@ -46,15 +46,6 @@ class feedbackForm {
     </div>`;
   }
 
-  // получение новой капчи
-  _reloadСaptcha() {
-    var captchaImg = this._elForm.querySelector('.form-captcha__image');
-    var captchaSrc = captchaImg.getAttribute('data-src');
-    var captchaPrefix = captchaSrc.indexOf('?id') !== -1 ? '&rnd=' : '?rnd=';
-    var captchaNewSrc = captchaSrc + captchaPrefix + new Date().getTime();
-    captchaImg.setAttribute('src', captchaNewSrc);
-  }
-
   // установка статуса валидации
   _setStateValidaion(input, state, message) {
     const className = state === 'success' ? 'is-valid' : 'is-invalid';
@@ -66,10 +57,8 @@ class feedbackForm {
     }
     input.classList.remove('is-valid');
     input.classList.remove('is-invalid');
-    input.closest('.form-group').querySelector('.invalid-feedback').textContent = '';
     if (state === 'error' || state === 'success') {
       input.classList.add(className);
-      input.closest('.form-group').querySelector('.invalid-feedback').textContent = text;
     }
   }
 
@@ -92,11 +81,9 @@ class feedbackForm {
     const elAttach = this._elForm.querySelector('.form-attach');
     if (elAttach) {
       elAttach.classList.remove('is-invalid');
-      elAttach.querySelector('.invalid-feedback').textContent = '';
       const isRequired = elAttach.querySelector('[type="file"]').required;
       if (isRequired && this._attach.items.length === 0) {
         elAttach.classList.add('is-invalid');
-        elAttach.querySelector('.invalid-feedback').textContent = 'Заполните это поле.';
       }
     }
     this._attach.items.forEach((item) => {
@@ -117,10 +104,12 @@ class feedbackForm {
   // собираем данные для отправки на сервер
   _getFormData() {
     const formData = new FormData(this._elForm);
+
     formData.delete('attach[]');
     this._attach.items.forEach(item => {
       formData.append('attach[]', item.file);
     });
+
     return formData;
   };
 
@@ -129,7 +118,6 @@ class feedbackForm {
     const elAttach = this._elForm.querySelector('.form-attach');
     if (elAttach) {
       elAttach.classList.remove('is-invalid');
-      elAttach.querySelector('.invalid-feedback').textContent = '';
     }
     this._elForm.querySelectorAll('input, textarea').forEach(el => {
       this._setStateValidaion(el);
@@ -159,7 +147,6 @@ class feedbackForm {
         if (typeof attachs === 'string') {
           if (elAttach.querySelector('[type="file"]').required) {
             elAttach.classList.add('is-invalid');
-            elAttach.querySelector('.invalid-feedback').textContent = attachs;
           }
         } else {
           for (let attach in attachs) {
@@ -169,7 +156,7 @@ class feedbackForm {
           }
         }
       } else {
-        key === 'captcha' ? this._reloadСaptcha() : null;
+        key = null;
         const el = this._elForm.querySelector('[name="' + key + '"]');
         el ? this._setStateValidaion(el, 'error', data['errors'][key]) : null;
       }
@@ -244,7 +231,6 @@ class feedbackForm {
 
   // функция для инициализации
   _init() {
-    console.log('!!!')
     const elFormAttachCount = this._elForm.querySelector('.form-attach__count');
     elFormAttachCount ? elFormAttachCount.textContent = this._attach.maxItems : null;
     this._submitText = this._elForm.querySelector('[type="submit"]').textContent;
@@ -261,10 +247,7 @@ class feedbackForm {
     // обработка события click
     this._elForm.addEventListener('click', (e) => {
       const target = e.target;
-      if (target.closest('.form-captcha__refresh')) {
-        e.preventDefault();
-        this._reloadСaptcha();
-      } else if (target.closest('.form-attach__link')) {
+      if (target.closest('.form-attach__link')) {
         const el = target.closest('.form-attach__item');
         const index = +el.dataset.index;
         this._attach.items.forEach((item, i) => {
@@ -315,7 +298,6 @@ class feedbackForm {
     this._elForm.querySelectorAll('input, textarea').forEach(el => {
       this._setStateValidaion(el);
     });
-    document.querySelector('[name="captcha"]') ? this._reloadСaptcha() : null;
     if (this._elForm.querySelector('.form-attach')) {
       this._attach['index'] = 0;
       this._attach['items'] = [];

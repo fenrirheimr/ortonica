@@ -1,11 +1,5 @@
 <?php
 
-/*
- * Форма обратной связи (https://itchief.ru/lessons/php/feedback-form-for-website)
- * Copyright 2016-2023 Alexander Maltsev
- * Licensed under MIT (https://github.com/itchief/feedback-form/blob/master/LICENSE)
- */
-
 header('Content-Type: application/json');
 
 // обработка только ajax запросов (при других запросах завершаем выполнение скрипта)
@@ -29,7 +23,7 @@ const HAS_ATTACH_REQUIRED = false;
 // разрешённые mime типы файлов
 const ALLOWED_MIME_TYPES = ['image/jpeg', 'image/gif', 'image/png'];
 // максимально-допустимый размер файла
-const MAX_FILE_SIZE = 512 * 1024;
+const MAX_FILE_SIZE = 25M;
 // директория для хранения файлов
 define('UPLOAD_PATH', dirname(__FILE__) . '/uploads/');
 
@@ -38,12 +32,12 @@ const HAS_SEND_EMAIL = true;
 // добавить ли прикреплённые файлы в тело письма в виде ссылок
 const HAS_ATTACH_IN_BODY = true;
 const EMAIL_SETTINGS = [
-  'addresses' => ['manager@domain.com'], // кому необходимо отправить письмо
-  'from' => ['no-reply@domain.com', 'Имя сайта'], // от какого email и имени необходимо отправить письмо
+  'addresses' => ['xhtmlblog@gmail.com'], // кому необходимо отправить письмо
+  'from' => ['no-reply@domain.com', 'Ortonica'], // от какого email и имени необходимо отправить письмо
   'subject' => 'Сообщение с формы обратной связи', // тема письма
   'host' => 'ssl://smtp.yandex.ru', // SMTP-хост
-  'username' => 'name@yandex.ru', // // SMTP-пользователь
-  'password' => '*********', // SMTP-пароль
+  'username' => 'fenrirheimr@yandex.ru', // // SMTP-пользователь
+  'password' => '2128506BGrib', // SMTP-пароль
   'port' => '465' // SMTP-порт
 ];
 const HAS_SEND_NOTIFICATION = false;
